@@ -1,0 +1,38 @@
+.book{
+    background: #F8F9FA;
+    font-weight: bold;
+    border-width: 5px;
+    border-color: black;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+
+.reg_form{
+    background: #F8F9FA;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    padding: 5px;
+
+
+
+}
+
+
+.search{
+    background: #F8F9FA;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+.book_cover {
+
+  width: 200px;
+}

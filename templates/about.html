@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Project 1</h3>
+      <br>
+      <h4>Web Programming with Python and JavaScript</h4>
+      <p>This Project is part of Harvard CS50W course provided by edx portal.</p>
+      <h4>Description</h4>
+      <p>This project contains:</p>
+      <ul>
+      <li><strong>Registration form:</strong> for signing up and become a member in order to search, review and rate books.</li>
+      <li><strong>Login form:</strong> using username and password ( password hash saved in database instead of saving the password in plain text) using passlib library.</li>
+      <li><strong>Logout:</strong> to clear session.</li>
+      <li><strong>Search box:</strong> is not shown in the homepage or any page in the website until the user logged in.
+      user can search by ISBN number , title or author even if the query in the middle of text.</li>
+      <li><strong>Results page:</strong> the count of results is displayed and the results of search.</li>
+      <li><strong>Homepage:</strong> in every refresh of the homepage, 10 random box are displayed and user will not able to view book page until he login in. (using shuffle from Random and limit in jinja2 the first 10 records.</li>
+      <li><strong>Last rated books:</strong> last rated books are shown here.</li>
+      <li><strong>Book page:</strong> for every book in website, a page is created displaying book title, author, publication year, and ISBN number and all reviews left by users and their ratings in addition of reviews count&gt;</li>
+      <li><strong>Goodreads reviews:</strong> the average rating and number of ratings for the book also ISBN13 are displayed as received from  Goodreads using their API.</li>
+      <li><strong>Book cover photo:</strong> I used Google books API for fetching book cover for books as Goodreads is not providing this option and display book cover in Book page</li>
+      <li><strong>Review submission:</strong> on the book page, user is able to submit only 1 review per book and rate the book on scale of 1 to 5, 1 for lowest and 5 for the highest rating and to write his opinion about the book.</li>
+      <li><strong>API access:</strong> users can access my website books data using my own API provided the ISBN number, by accessing website <code>/api/&lt;isbn&gt;</code></li>
+      </ul>
+      <h4>Utilities I have used</h4>
+      <ul>
+      <li><strong>Cygwin:</strong> I used <a href="https://cygwin.com/">cygwin</a> to run psql command on Windows, very handy utility to run Postgres sql database queries.</li>
+      <li><strong>Atom:</strong> <a href="https://atom.io/">Text editor</a> I Love.</li>
+      <li><strong>PIP Freeze:</strong> for auto generating requirements.txt <code>$ pip freeze &gt; requirements.txt</code></li>
+      </ul>
+      <h4>This Project is by</h4>
+      <p><a href="https://fb.me/nakhla">Magdi Nakhla</a></p>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

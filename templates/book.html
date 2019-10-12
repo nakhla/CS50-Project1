@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+
+
+<div class="col-lg-12">
+  <div class="row justify-content-center">
+    <div class="card" style="width: 640px;">
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="{{googleimg}}" class="card-img book_cover rounded img-fluid d-block mx-auto">
+        </div>
+        <div class="col-lg-8">
+          <div class="card-body">
+            <h3 class="card-title">{{ b.title }}</h3>
+            <p class="card-text">by {{ b.author}} published on {{ b.year }}</p>
+            <p class="card-text"><small class="text-muted">ISBN: {{ b.isbn }}</small></p>
+            <h5 class="card-title">goodreads</h5>
+            <p class="card-text">isbn13: {{gd_isbn}} <br>Ratings Count: {{gd_rcount}} <br> Average Rating: {{ gd_ravg }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-3 mb-2 bg-primary text-white text-center rounded">User Reviews <span class="badge badge-pill badge-light">{{reviewscount }}</span></div>
+      <div class="list-group">
+{% for review in reviews %}
+  <li class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><span class="badge badge-success">By : {{ review.username }}</span></h5>
+      <h5><span class="badge badge-warning badge-pill">Rate: {{ review.review_stars }} </span></h5>
+    </div>
+    <p class="mb-1 text-center">{{ review.review_details }}</p>
+  </li>
+{% endfor %}
+
+</div>
+
+      <div>
+        <form class="border border-light border-top-0" method="post">
+          <div class="form-group">
+            <label>Select your rating :</label>
+            <select class="form-control" name="rating" required>
+              <option value="1">1 is the lowest</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5 is the highest</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Write you review :</label>
+            <textarea class="form-control shadow-lg p-3 mb-5 bg-white rounded" name="details" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Post review</button>
+          </div>
+        </form>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}
