@@ -176,6 +176,9 @@ def login():
                 flash("Login successful","success")
                 session["LoggedUserID"] =  username
                 return redirect(url_for('home'))
+            else:
+                flash("Login failed","danger")
+                return render_template("login.html")
         else:
             flash("Login failed","danger")
             return render_template("login.html")
