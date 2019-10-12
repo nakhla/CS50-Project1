@@ -3,6 +3,9 @@
 ## Web Programming with Python and JavaScript
 This Project is part of Harvard CS50W course provided by edx portal
 
+## Browse the deployed application in Heroku
+### <https://bookshelf-eg.herokuapp.com>
+
 ## Description
 This project contains:
 * __Registration form:__ for signing up and become a member in order to search, review and rate books.
