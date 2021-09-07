@@ -16,9 +16,11 @@ This project contains:
 * __Results page:__ the count of results is displayed and the results of search.
 * __Homepage:__ in every refresh of the homepage, 10 random box are displayed and user will not able to view book page until he login in. (using shuffle from Random and limit in jinja2 the first 10 records.
 * __Last rated books:__ last rated books are shown here.
-* __Book page:__ for every book in website, a page is created displaying book title, author, publication year, and ISBN number and all reviews left by users and their ratings in addition of reviews count>
-* __Goodreads reviews:__ the average rating and number of ratings for the book also ISBN13 are displayed as received from  Goodreads using their API.
-* __Book cover photo:__ I used Google books API for fetching book cover for books as Goodreads is not providing this option and display book cover in Book page
+* __Book page:__ for every book in website, a page is created displaying book title, author, publication year, and ISBN number and all reviews left by users and their ratings in addition of reviews count.
+* ~~__Goodreads reviews:__ the average rating and number of ratings for the book also ISBN13 are displayed as received from  Goodreads using their API.~~
+> As of December 8th 2020, Goodreads is no longer issuing new developer keys for our public developer API and plans to retire these tools. and I got an email saying that my developer API key has been deactivated due to 30 days of inactivity, So I just used Google books API.
+* __Google Books reviews:__ the average rating, number of ratings for the book, ISBN13 are displayed, also added a Preview Link for the book from Google Books.
+* __Book cover photo:__ I used Google books API for fetching book cover for books ~~as Goodreads is not providing this option~~ and display book cover in the Book page.
 * __Review submission:__ on the book page, user is able to submit only 1 review per book and rate the book on scale of 1 to 5, 1 for lowest and 5 for the highest rating and to write his opinion about the book.
 * __API access:__ users can access my website books data using my own API provided the ISBN number, by accessing website ```/api/<isbn>```
 
