@@ -15,8 +15,8 @@
             <h3 class="card-title">{{ b.title }}</h3>
             <p class="card-text">by {{ b.author}} published on {{ b.year }}</p>
             <p class="card-text"><small class="text-muted">ISBN: {{ b.isbn }}</small></p>
-            <h5 class="card-title">goodreads</h5>
-            <p class="card-text">isbn13: {{gd_isbn}} <br>Ratings Count: {{gd_rcount}} <br> Average Rating: {{ gd_ravg }}</p>
+            <h5 class="card-title">Google Books: <a href="{{g_previewlink}}">Preview</a> </h5>
+            <p class="card-text">isbn13: {{g_isbn}} <br>Ratings Count: {{g_rcount}} <br> Average Rating: {{ g_ravg }}</p>
           </div>
         </div>
       </div>

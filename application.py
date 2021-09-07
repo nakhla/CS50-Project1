@@ -100,10 +100,11 @@ def book(book_isbn):
         raise Exception ("Error: Google Book API request unsuccessful")
 # convert googlebook response to json
     googledata = googleres.json()
-# store google reviews average, reviews count, isbn13. used google books api instead of goodreads api as of December 8th 2020 goodreads dropped support pf api
-    gd_ravg = googledata['items'][0]['volumeInfo']['averageRating']
-    gd_rcount = googledata['items'][0]['volumeInfo']['ratingsCount']
-    gd_isbn= googledata['items'][0]['volumeInfo']['industryIdentifiers'][0]['identifier']
+# store google reviews average, reviews count, isbn13, previewlink used google books api instead of goodreads api as of December 8th 2020 goodreads dropped support pf api
+    g_ravg = googledata['items'][0]['volumeInfo']['averageRating']
+    g_rcount = googledata['items'][0]['volumeInfo']['ratingsCount']
+    g_isbn= googledata['items'][0]['volumeInfo']['industryIdentifiers'][0]['identifier']
+    g_previewlink = googledata['items'][0]['volumeInfo']['previewLink']
 # check if book cover image exists in the response, if not pass a no_book_cover jpg instead
     if googledata['totalItems']!= 0 and 'imageLinks' in  googledata['items'][0]['volumeInfo']:
         googleimg = googledata['items'][0]['volumeInfo']['imageLinks']['thumbnail']
@@ -114,7 +115,7 @@ def book(book_isbn):
             {"isbn": book_isbn}).fetchall()
 # get count of reviews per book
     reviewscount = len(reviews)
-    return render_template('book.html',b=b, gd_ravg= gd_ravg, gd_rcount= gd_rcount, gd_isbn=gd_isbn, googleimg=googleimg, reviews=reviews, reviewscount=reviewscount )
+    return render_template('book.html',b=b, g_ravg= g_ravg, g_rcount= g_rcount, g_isbn=g_isbn, g_previewlink=g_previewlink, googleimg=googleimg, reviews=reviews, reviewscount=reviewscount )
 
 @app.route("/about")
 def about():
