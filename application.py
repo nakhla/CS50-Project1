@@ -85,21 +85,25 @@ def book(book_isbn):
         return render_template('home.html', books=books)
 
 # get response from the goodreads api with key and isbn as parameters
-    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "td4eTrcOjBDtdEB1t5rF1Q", "isbns":book_isbn })
-    if res.status_code != 200:
-        raise Exception ("Error:goodreads API request unsuccessful.")
+#    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "td4eTrcOjBDtdEB1t5rF1Q", "isbns":book_isbn })
+#    if res.status_code != 200:
+#        raise Exception ("Error:goodreads API request unsuccessful.")
 # convert goodread response to json
-    data = res.json()
+#    data = res.json()
 # store goodread reviews average, reviews count, isbn13.
-    gd_ravg = data['books'][0]['average_rating']
-    gd_rcount = data['books'][0]['work_ratings_count']
-    gd_isbn= data['books'][0]['isbn13']
+#    gd_ravg = data['books'][0]['average_rating']
+#    gd_rcount = data['books'][0]['work_ratings_count']
+#    gd_isbn= data['books'][0]['isbn13']
 # get response from the Google Book api with isbn as parameter to get book cover image
     googleres= requests.get(f"https://www.googleapis.com/books/v1/volumes?q=isbn:{book_isbn}")
     if googleres.status_code != 200:
         raise Exception ("Error: Google Book API request unsuccessful")
 # convert googlebook response to json
     googledata = googleres.json()
+# store google reviews average, reviews count, isbn13. used google books api instead of goodreads api as of December 8th 2020 goodreads dropped support pf api
+    gd_ravg = googledata['items'][0]['volumeInfo']['averageRating']
+    gd_rcount = googledata['items'][0]['volumeInfo']['ratingsCount']
+    gd_isbn= googledata['items'][0]['volumeInfo']['industryIdentifiers'][0]['identifier']
 # check if book cover image exists in the response, if not pass a no_book_cover jpg instead
     if googledata['totalItems']!= 0 and 'imageLinks' in  googledata['items'][0]['volumeInfo']:
         googleimg = googledata['items'][0]['volumeInfo']['imageLinks']['thumbnail']
